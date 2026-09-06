@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Дневник здоровья</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div id="splashScreen">
+        <div class="splash-content">
+            <div class="doctor-icon">👨‍⚕️</div>
+            <h2>Дневник здоровья</h2>
+            <p>Загружается...</p>
+            <div class="splash-loader"></div>
+        </div>
+    </div>
+
+    <div id="registerScreen" style="display:none;">
+        <div class="register-box">
+            <h2>👋 Добро пожаловать</h2>
+            <p>Введите ваше имя, чтобы продолжить</p>
+            <input type="text" id="userNameInput" placeholder="Ваше имя" />
+            <button id="registerBtn">Войти</button>
+        </div>
+    </div>
+
+    <div id="appScreen" style="display:none;">
+        <header class="app-header">
+            <span class="greeting" id="greetingText">Привет, 👤</span>
+            <button id="themeToggleBtn">🌙</button>
+            <button id="callDoctorBtn" class="header-doctor-btn">🚑 112</button>
+        </header>
+
+        <main id="mainContent">
+            <section id="tabSymptoms" class="tab-content active">
+                <input type="text" id="searchInput" placeholder="Поиск симптома..." />
+                <div id="symptomsCount"></div>
+                <div id="symptomsList"></div>
+            </section>
+
+            <section id="tabTreatment" class="tab-content">
+                <h3>💊 Лечение</h3>
+                <div id="treatmentProgress">Вылечено: 0 из 0</div>
+                <select id="treatmentSelect"><option value="">— Выберите симптом —</option></select>
+                <div id="treatmentSteps"></div>
+                <button id="completeTreatmentBtn" style="display:none;">✅ Завершить лечение</button>
+                <button id="resetProgressBtn" class="reset-btn">🔄 Сбросить прогресс</button>
+            </section>
+
+            <section id="tabAnalytics" class="tab-content">
+                <h3>📊 Аналитика</h3>
+                <div id="analyticsContent">
+                    <div class="analytics-card"><span>📅 Самочувствие за неделю</span><div id="weekChart"></div></div>
+                    <div class="analytics-card"><span>🔁 Частые симптомы</span><div id="frequentSymptoms"></div></div>
+                    <div class="analytics-card"><span>💡 Рекомендации</span><div id="recommendations"></div></div>
+                </div>
+            </section>
+
+            <section id="tabJournal" class="tab-content">
+                <h3>📖 Журнал самочувствия</h3>
+                <p style="color:#6b7a8f;margin-bottom:12px;">Как ты себя чувствуешь сегодня?</p>
+                <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+                    <button class="mood-btn" data-mood="good">🟢 Хорошо</button>
+                    <button class="mood-btn" data-mood="ok">🟡 Нормально</button>
+                    <button class="mood-btn" data-mood="bad">🔴 Плохо</button>
+                </div>
+                <div id="moodLog"></div>
+                <button id="exportDataBtn" class="export-btn">📤 Экспорт данных</button>
+            </section>
+
+            <section id="tabNotes" class="tab-content">
+                <div class="notes-header"><h3>📝 Мои заметки</h3><button id="addNoteBtn">+</button></div>
+                <div id="notesList"></div>
+            </section>
+
+            <section id="tabSettings" class="tab-content">
+                <h3>⚙️ Настройки</h3>
+                <div class="settings-item"><span>Тема</span><button id="themeToggleSettings">🌙 Тёмная</button></div>
+                <div class="settings-item"><span>Имя</span><span id="settingsUserName">—</span></div>
+                <button id="logoutBtn" class="logout-btn">Выйти</button>
+            </section>
+        </main>
+
+        <nav class="tab-bar">
+            <button class="tab-btn active" data-tab="tabSymptoms">🩺 Симптомы</button>
+            <button class="tab-btn" data-tab="tabTreatment">💊 Лечение</button>
+            <button class="tab-btn" data-tab="tabAnalytics">📊 Аналитика</button>
+            <button class="tab-btn" data-tab="tabJournal">📖 Журнал</button>
+            <button class="tab-btn" data-tab="tabNotes">📝 Заметки</button>
+            <button class="tab-btn" data-tab="tabSettings">⚙️ Настройки</button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
